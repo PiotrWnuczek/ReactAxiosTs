@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Routes, Navigate } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import { grey, blueGrey } from '@mui/material/colors';
 import { ThemeProvider } from '@mui/material';
 import AppProvider from 'assets/useApp';
-import SigninView from 'pages/SigninView';
-import SignupView from 'pages/SignupView';
 import BoardView from 'pages/BoardView';
 
 const App = () => {
@@ -23,9 +21,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>
-            <Route path='/signin' element={<SigninView />} />
-            <Route path='/signup' element={<SignupView />} />
-            <Route path='/*' element={access ? <BoardView /> : <Navigate to='/signin' />} />
+            <Route path='/*' element={<BoardView />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
